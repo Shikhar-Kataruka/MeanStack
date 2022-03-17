@@ -1,0 +1,108 @@
+ <div ng-init="getData()" ng-controller="insertController as vm" class="container">
+    <div class="row">
+        <div style="width: 50%; margin: 50px auto;">
+            <h3 class="card-subhead">Student Detail Insertion Form</h3><br>
+            <form name="myForm" id="insertForm" novalidate class="simple-form" ng-submit="addEntry()">
+                <div class="form-group">
+                    <input class="form-control" placeholder="FirstName" type="text" ng-model="fName" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Lastname"  type="text" ng-model="lName" required>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" placeholder="Class" ng-model="class" ng-options="itr for itr in classArr" required> 
+                        <option value="" disabled>Class</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" placeholder="school"ng-model="school" required> 
+                        <option value="" disabled>School</option>
+                        <option ng-modal="userData">{{userData.name}}</option>
+                </select>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" ng-required="true" placeholder="MobileNo" ng-pattern="ph_numbr" autocomplete="off"  type="text" name="phoneNo" ng-model="phoneNo" required>
+                  <span  ng-if="myForm.phoneNo.$error.required && myForm.phoneNo.$dirty">Contact number is a required field</span>
+                  <span  ng-show="myForm.phoneNo.$error.pattern">Please enter a 10 digit number</span>                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Age"   type="number" min ="0" max="100" ng-model="age" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Gender</label>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="gender" value="male"checked><span style= "color :grey">Male</span>
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" ng-model="gender" value="female"><span style= "color :grey">Female</span>
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" ng-model="gender" value="other"><span style= "color :grey">Others</span>
+                      </label>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Boards</label>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="boards" value="cbse"checked><span style= "color :grey">cbse</span>
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" ng-model="boards" value="icse"><span style= "color :grey">icse</span>
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" ng-model="boards" value="state"><span style= "color :grey">state</span>
+                      </label>
+                </div>
+                <div>
+                    <table class="table table-striped">
+                      <tr>
+                        <td>
+                           <select class="form-control"  placeholder="region" ng-change="getStates()" ng-model="regions" ng-options="itr.name for itr in region" required>
+                            <option value="" disabled>Region</option>
+                           </select>
+                        </td>
+                        <td>
+                            <select class="form-control" placeholder="state" ng-change="getCities()" ng-model="states" ng-options="itr.name for itr in state">
+                             <option value="" disabled>State</option>
+                            </select>
+                         </td>
+                         <td>
+                            <select class="form-control" placeholder="city"  ng-model="cities" ng-options="itr.name for itr in city">
+                             <option value="" disabled>City</option>
+                            </select>
+                         </td>
+                       </tr>
+                    </table>
+                <div class="form-group">
+                    <table id="table" class="table table-striped">
+                      <tr>
+                        <td>
+                           <select class="form-control" placeholder="subject" ng-model="selectedName" ng-options="itr for itr in subject">
+                            <option value="" disabled>Subject</option>
+                           </select>
+                        </td>
+                        <td>
+                           <input class="form-control" placeholder="marks"   type="number" min ="0" max="100" ng-model="marks" required>
+                        </td>
+                        <td>
+                            <select class="form-control"  ng-model="selectedTeacher" ng-options="itr for itr in teacher">
+                             <option value="" disabled>Teacher</option>
+                            </select>
+                         </td>
+                        <td>
+                           <input type="button" value="Add" ng-click="subjectDetails.push({teacher:[{name:selectedTeacher}],name:selectedName,marks:marks})"></input>
+                        </td>
+                       </tr>
+                       <tr ng-repeat="subject in subjectDetails">
+                        <td>{{subject.teacher[0].name}}</td>
+                         <td>{{subject.name}}</td>
+                         <td>{{subject.marks}}</td>
+                         <td><input type="button" value="remove" ng-click="subjectDetails.splice($index, 1)" aria-label="Remove"></input></td>
+                       </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-lg btn-primary btn-block" type="submit"></input>
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>

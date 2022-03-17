@@ -1,0 +1,43 @@
+ <div ng-init="getData()" ng-controller="showController as vm" class="container">
+    <div class="row">
+        <div style="width: 30%; margin: 50px auto;">
+            <h3 class="card-subhead">Student Details</h3><br>
+            <table class="table table-striped">
+                <tr>
+                    <th>S.No</th>
+                    <th>Fname</th>
+                    <th>lname</th>
+                    <th>StudentDetails</th>
+                </tr>
+                <tr dir-paginate="entry in stdet | itemsPerPage:5 ">
+                    <td>{{$index+1}}</td>
+                    <td>{{entry.fName}}</td>
+                    <td>{{entry.lName}}</td>
+                    <td><button ng-click="showStudent(entry._id)")>Show</td>
+                </tr>
+            </table>
+        </div>
+        <div style="width: 30%; margin: 50px auto;">
+            <dir-pagination-controls></dir-pagination-controls>
+        </div>
+        <div style="width: 30%; margin: 50px auto;">
+            <h3 class="card-subhead">Top Subjects of a Student</h3><br>
+            <table class="table table-striped">
+                <tr>
+                    <th>S.No</th>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                </tr>
+                <tr ng-repeat="entry in subDetails ">
+                    <td>{{$index+1}}</td>
+                    <td>{{entry.name}}</td>
+                    <td>{{entry.marks}}</td>
+                </tr>
+            </table>
+        
+        </div>
+    </div>
+    </div>
+
+    
+    

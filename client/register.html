@@ -1,0 +1,213 @@
+
+
+ <style>
+    body {
+        background: #222D32;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .login-box {
+        margin-top: 75px;
+        height: auto;
+        background: #1A2226;
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+    
+    .login-key {
+        height: 100px;
+        font-size: 80px;
+        line-height: 100px;
+        background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .login-title {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #ECF0F5;
+    }
+    
+    .login-form {
+        margin-top: 25px;
+        text-align: left;
+    }
+    
+    input[type=text] {
+        background-color: #1A2226;
+        border: none;
+        border-bottom: 2px solid #0DB8DE;
+        border-top: 0px;
+        border-radius: 0px;
+        font-weight: bold;
+        outline: 0;
+        margin-bottom: 20px;
+        padding-left: 0px;
+        color: #ECF0F5;
+    }
+    
+    input[type=password] {
+        background-color: #1A2226;
+        border: none;
+        border-bottom: 2px solid #0DB8DE;
+        border-top: 0px;
+        border-radius: 0px;
+        font-weight: bold;
+        outline: 0;
+        padding-left: 0px;
+        margin-bottom: 20px;
+        color: #ECF0F5;
+    }
+    
+    .form-group {
+        margin-bottom: 40px;
+        outline: 0px;
+    }
+    
+    .form-control:focus {
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-bottom: 2px solid #0DB8DE;
+        outline: 0;
+        background-color: #1A2226;
+        color: #ECF0F5;
+    }
+    
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 0;
+    }
+    
+    label {
+        margin-bottom: 0px;
+    }
+    
+    .form-control-label {
+        font-size: 10px;
+        color: #6C6C6C;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    
+    .btn-outline-primary {
+        border-color: #0DB8DE;
+        color: #0DB8DE;
+        border-radius: 0px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+    
+    .btn-outline-primary:hover {
+        background-color: #0DB8DE;
+        right: 0px;
+    }
+    
+    .login-btm {
+        float: left;
+    }
+    
+    .login-button {
+        padding-right: 0px;
+        text-align: right;
+        margin-bottom: 25px;
+    }
+    
+    .login-text {
+        text-align: left;
+        padding-left: 0px;
+        color: #A2A4A4;
+    }
+    
+    .loginbttm {
+        padding: 0px;
+    }
+     </style>
+    
+    <div ng-controller="registerController as vm" class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+                <div class="col-lg-12 login-key">
+                    <img widht="150" height="100"src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/dlsu0klq8wfqopndsxc0"></i>
+                </div>
+                <div class="col-lg-12 login-title">
+                    USER REGISTRATION
+                </div>
+    
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form id="registerForm" name="registerForm" ng-submit="addEntry()">
+                            <div class="form-group">
+                                <label class="form-control-label">USERNAME</label>
+                                <input class="form-control" type="text" name="username" ng-model="username" ng-pattern="eml_add" ng-required="true" autocomplete="off">
+                    <span style="color:white" class="red-text" ng-if="registerForm.username.$error.required && registerForm.username.$dirty">Email is a required field</span>
+                    <span style="color:white" class="{  
+                        $scope.user = {  
+                            password: "",  
+                            confirmPassword: ""  
+                        };  
+                    });  " ng-show="registerForm.username.$error.pattern">Invalid Email</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">PASSWORD</label>
+                                <input class="form-control" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" name="password" type="password" ng-model="password" ng-minlength="1" ng-maxlength="16" required>
+                                <span class="success" ng-show=" (registerform.password.$dirty) && registerForm.password.$error.pattern">Invalid</span>
+
+                                <span style="color:white" ng-show="registerForm.password.$touched && registerForm.password.$error.minlength">min 3 chars.</span>
+                                <span style="color:white" ng-show="registerForm.password.$touched && registerForm.password.$error.maxlength">Max 16 chars.</span>
+                                <span style="color:white" class="red-text" ng-if="registerForm.password.$error.required && registerForm.password.$dirty">Password is a required field</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">CONFIRM PASSWORD</label>
+                                <input type="password" name="CPassword" ng-model="CPassword" required compare-to="password" class="form-control"/>   
+                        <span style="color:white" class="red-text" ng-show="registerForm.CPassword.$error.compareTo">  
+                       Passwords don't match.  
+                    </span>   
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">PHONE NO</label>
+                                <input class="form-control" ng-required="true" ng-pattern="ph_numbr" autocomplete="off"  type="text" name="phoneNo" ng-model="phoneNo" required>
+                    <span style="color:white" class="red-text" ng-if="registerForm.phoneNo.$error.required && registerForm.phoneNo.$dirty">Contact number is a required field</span>
+                    <span style="color:white" class="red-text" ng-show="registerForm.phoneNo.$error.pattern">Please enter a 10 digit number</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">USER-ID</label>
+                                <input class="form-control"  placeholder="Enter one time registration ID" type="text" name="userId" ng-model="userId" required="true">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">USER TYPE</label>
+                                <label class="radio-inline">
+                                    <input type="radio" ng-model="userType" value="school"checked><span style= "color :grey">School</span>
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" ng-model="userType" value="teacher"><span style= "color :grey">Teacher</span>
+                                  </label>
+                                  <label class="radio-inline">
+                                    <input type="radio" ng-model="userType" value="student"><span style= "color :grey">Student</span>
+                                  </label>
+                            </div>
+
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                </div>
+                                
+                                <div class="col-lg-6 login-btm login-button">
+                                    <button ng-disabled="registerForm.$invalid || registerForm.$pending" type="submit" class="btn btn-outline-primary">SIGN UP</button>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-2"></div>
+            </div>
+        </div>
+    
+    

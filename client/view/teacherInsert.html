@@ -1,0 +1,38 @@
+<div ng-init="getData()" ng-controller="teacherInsertController as vm" class="container">
+    <div class="row">
+        <div style="width: 50%; margin: 50px auto;">
+            <h3 class="card-subhead">Teacher Detail Insertion Form</h3><br>
+            <form name="myForm" id="insertForm" novalidate class="simple-form" ng-submit="addEntry()">
+                <div class="form-group">
+                    <input class="form-control" placeholder="FirstName" type="text" ng-model="fName" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Lastname"  type="text" ng-model="lName" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" ng-required="true" placeholder="MobileNo" ng-pattern="ph_numbr" autocomplete="off"  type="text" name="phoneNo" ng-model="phoneNo" required>
+                    <span  ng-if="myForm.phoneNo.$error.required && myForm.phoneNo.$dirty">Contact number is a required field</span>
+                    <span  ng-show="myForm.phoneNo.$error.pattern">Please enter a 10 digit number</span> 
+               </div>
+              <div class="form-group">
+                    <input class="form-control" placeholder="Age"   type="number" min ="0" max="100" ng-model="age" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">Gender</label>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="gender" value="male"checked><span style= "color :grey">Male</span>
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" ng-model="gender" value="female"><span style= "color :grey">Female</span>
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" ng-model="gender" value="other"><span style= "color :grey">Others</span>
+                      </label>
+                </div>
+                <div class="form-group">
+                    <input ng-disabled="myForm.$invalid || myForm.$pending" class="btn btn-lg btn-primary btn-block" type="submit"></input>
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>

@@ -1,0 +1,123 @@
+ <div ng-init="getData()" ng-controller="analyticsController as vm" class="container">
+    <div class="row">
+        <div style="width: 50%; margin: 50px auto;">
+            <h3 class="card-subhead">School Ranking Analysis Overall </h3><br>
+            <form name="form1">
+                <div class="form-group">
+                    <table class="table table-striped">
+                      <tr>
+                        <td>
+                           <select class="form-control" ng-change="getnextparam1(selectedParam1)" placeholder="choose the parameter" ng-model="selectedParam1" required>
+                            <option hidden value="" disabled selected>Filter 1</option>
+                            <option value="Region" selected >Region</option>
+                            <option value="State">State</option>
+                            <option value="City">City</option>
+                           </select>
+                        </td>
+                        <td>
+                        <div class="form-group">
+                            <select class="form-control"  ng-model="selectedParam2" ng-options="itr.name for itr in arr1" required> 
+                                <option value="" disabled>Filter 2</option>
+                            </select>
+                        </div>
+                        </td>
+                        <td>
+                            <button ng-disabled="form1.$invalid || form1.$pending" ng-click=" analytics1(selectedParam1,selectedParam2.name)">Get Details</button>
+                        </td>
+                       </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+    <canvas id="bar" class="chart chart-bar"
+  chart-data="datas" chart-labels="labelss"> chart-series="series"
+</canvas>
+    <div class="row">
+        <div style="width: 50%; margin: 50px auto;">
+            <h3 class="card-subhead">School Ranking Analysis Subject Wise </h3><br>
+            <form name="form2">
+                <div class="form-group">
+                    <table class="table table-striped">
+                      <tr>
+                        <td>
+                           <select class="form-control" ng-change="getnextparam2(selectedParam3)" placeholder="choose the parameter" ng-model="selectedParam3" required>
+                            <option hidden value="" disabled selected>Filter 1</option>
+                            <option value="Region" selected >Region</option>
+                            <option value="State">State</option>
+                            <option value="City">City</option>
+                           </select>
+                        </td>
+                        <td>
+                        <div class="form-group">
+                            <select class="form-control" ng-model="selectedParam4" ng-options="itr.name for itr in arr2" required> 
+                                <option value="" disabled>Filter 2</option>
+                            </select>
+                        </div>
+                        </td>
+                        <td>
+                            <select class="form-control"  ng-model="selectedParam5" ng-options="itr for itr in subject">
+                             <option value="" disabled>Subject</option>
+                            </select>
+                         </td>
+                        <td>
+                            <button ng-disabled="form2.$invalid || form2.$pending" ng-click=" analytics2(selectedParam3,selectedParam4.name,selectedParam5)">Get Details</button>
+                        </td>
+                       </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+    <canvas id="bar" class="chart chart-bar"
+        chart-data="data" chart-labels="labels"> chart-series="seriess"
+      </canvas>
+      <div style="width: 50%; margin: 50px auto;">
+        <h3 class="card-subhead">Age Based Analytics </h3><br>
+         <td>
+            <button ng-click="analytics3()">Get Details</button>
+        </td>
+    </div>
+    <canvas id="bar" class="chart chart-bar"
+        chart-data="dataAge" chart-labels="labelAge">chart-series="seriesss"
+      </canvas>
+      <div style="width: 50%; margin: 50px auto;">
+        <h3 class="card-subhead">Gender Based Analytics </h3><br>
+         <td>
+            <button ng-click="analytics4()">Get Details</button>
+        </td>
+    </div>
+    <canvas id="bar" class="chart chart-bar"
+        chart-data="dataGender" chart-labels="labelGender">chart-series="seriessss"
+      </canvas>
+   </div>
+<!--
+<div ng-controller="analyticsController" class="panel panel-success container-fluid">
+    <div class="panel-heading">
+        <div class="panel-title text-center">AngularJS Charts</div>
+    </div>
+    <div class="panel-body container-fluid">
+        <section>
+            <div class="row well">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <section ng-controller="angularBarChartController" class="">
+                        <div class="row lead">
+                            <div class="col-md-12 text-center ">Bar Chart</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <canvas id="bar" class="chart chart-bar"
+                                        chart-data="data" chart-labels="labels"
+                                        chart-series="series" chart-colors="ColorBar"
+                                        chart-options="options" chart-click="clickme" chart-hover="hoverme"
+                                        chart-dataset-override="DataSetOverride"></canvas>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+-->

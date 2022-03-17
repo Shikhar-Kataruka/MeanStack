@@ -1,0 +1,85 @@
+<div ng-controller='testController as vm' ng-init="getRegion()"></div>
+ <div ng-controller="testController as vm" class="container">
+    <div class="row">
+        <div style="width: 50%; margin: 50px auto;">
+            <h3 class="card-subhead">Student Insertion Form</h3><br>
+            <form id="insertForm" novalidate class="simple-form" ng-submit="addEntry()">
+                <div class="form-group">
+                    <input class="form-control" placeholder="FirstName" type="text" ng-model="fName" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Lastname"  type="text" ng-model="lName" required>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" placeholder="Class" ng-model="class" ng-options="itr for itr in classArr" required> 
+                        <option value="" disabled>Class</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" placeholder="school"ng-model="school" ng-options="itr for itr in schoolArr" required> 
+                        <option value="" disabled>School</option>
+                </select>
+                </div>
+                <div>
+                    <select class="form-control" default="area"ng-model="area" ng-options="itr for itr in areaArr" required> 
+                        <option value="" disabled>Area</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <table id="table" class="table table-striped">
+                      <tr>
+                        <td>
+                            <select class="form-control"  ng-options="itr for itr in region">
+                             <option value="" disabled>Region</option>
+                            </select>
+                         </td>
+                         <td>
+                            <select class="form-control"  ng-model="state" ng-options="itr for itr in state">
+                             <option value="" disabled>State</option>
+                            </select>
+                         </td>
+                         <td>
+                            <select class="form-control"  ng-model="city" ng-options="itr for itr in city">
+                             <option value="" disabled>City</option>
+                            </select>
+                         </td>
+                       </tr>
+                       <tr ng-repeat="subject in subjectDetails">
+                         <td>{{subject.name}}</td>
+                         <td>{{subject.marks}}</td>
+                         <td><input type="button" value="remove" ng-click="subjectDetails.splice($index, 1)" aria-label="Remove"></input></td>
+                       </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <table id="table" class="table table-striped">
+                      <tr>
+                        <td>
+                           <select class="form-control" placeholder="subject" ng-model="selectedName" ng-options="itr for itr in subject">
+                            <option value="" disabled>Subject</option>
+                           </select>
+                        </td>
+                        <td>
+                           <input class="form-control" placeholder="marks"   type="number" min ="0" max="100" ng-model="marks" required>
+                        </td>
+                        <td>
+                           <input type="button" value="Add" ng-click="subjectDetails.push({name:selectedName,marks:marks})"></input>
+                        </td>
+                       </tr>
+                       <tr ng-repeat="subject in subjectDetails">
+                         <td>{{subject.name}}</td>
+                         <td>{{subject.marks}}</td>
+                         <td><input type="button" value="remove" ng-click="subjectDetails.splice($index, 1)" aria-label="Remove"></input></td>
+                       </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="PhoneNo"   type="number" min ="0" ng-model="phoneNo" required>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-lg btn-primary btn-block" type="submit"></input>
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>

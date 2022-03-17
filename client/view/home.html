@@ -1,0 +1,331 @@
+<!--
+<style>
+    h3 {text-align: center;}
+</style>
+
+<div ng-init="getData()" ng-controller="homeCtrl" class="container mt-5 mb-3">
+    <h3  ng-modal="userData">Welcome to dashboard <span style="color:rgb(32, 10, 114)">{{userData.name}}</span></h3><br>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">POSist</h6>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>Analytics</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading">API -Link For <br>analytics</h3>
+                    <div class="mt-5">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+        
+                </div>
+            </div>
+            <div >
+                <a ui-sref="analytics" class="btn btn-primary stretched-link">Analytics</a>
+        </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">POSist</h6>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>Delete</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading">API-Link for Single-Deletion/multi-deletion</h3>
+                    <div class="mt-5">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <a ui-sref="delete" class="btn btn-primary stretched-link">Deletion</a>
+        </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">POSist</h6>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>Search</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading">API-Link for single-search/ multi-search</h3>
+                    <div class="mt-5">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <a ui-sref="search" class="btn btn-primary stretched-link">search</a>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container mt-5 mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">POSist</h6>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>Insert</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading">API-Link for<br> Insertion</h3>
+                    <div class="mt-5">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <a ui-sref="insert" class="btn btn-primary stretched-link">Insert</a>
+        </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">POSist</h6>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>Display</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading">API-Link for<br> Studentet Display</h3>
+                    <div class="mt-5">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <a ui-sref="student" class="btn btn-primary stretched-link">ShowDetails</a>
+        </div>
+        </div>
+       
+    </div>
+
+    
+</div>
+
+<br>
+-->
+<style>
+    h3 {text-align: center;}
+
+    .container {
+     font-family: Raleway;
+     display: flex;
+    
+     justify-content: center;
+     align-items: center;
+    }
+    .page-title {
+      margin-top: 50px;
+      text-align: center;
+    }
+    
+    .wrapper {
+      display: flex;
+      width: 980px;
+      height: 400px;
+      perspective: 1000px;
+      
+    }
+    
+    .card-wrapper {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      transform-style: preserve-3d;
+      transition: transform 0.75s;
+      margin: 10px;
+    }
+    
+    .card-wrapper.first:hover {
+      transform: rotate3d(0, 1, 0, -180deg);
+    }
+    
+    .card-wrapper.second:hover {
+      transform: rotate3d(1, 0, 0, 180deg);
+    }
+    
+    .card-wrapper.third:hover {
+      transform: rotate3d(1, 1, 0, 180deg);
+    }
+    
+    .front-card, .back-card {
+      box-sizing: border-box;
+      position: absolute;
+      width: 300px;
+      height: 400px;
+      background-color: white;
+      box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      padding: 15px;
+      backface-visibility: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 
+                  0 2px 2px rgba(0, 0, 0, 0.1), 
+                  0 4px 4px rgba(0, 0, 0, 0.1), 
+                  0 8px 8px rgba(0, 0, 0, 0.1), 
+                  0 16px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .front-card img {
+      width: 100%;
+      height: 60%;
+    }
+    
+    .back-card {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transform: rotate3d(0, 1, 0, 180deg);
+      transform-style: preserve-3d;
+    }
+    
+    .second .back-card {
+      transform: rotate3d(1, 0, 0, 180deg);
+    }
+    
+    .third .back-card {
+      transform: rotate3d(1, 1, 0, 180deg);
+    }
+    
+    .back-card h2 {
+      font-size: 36px;
+    }
+    
+    .back-card a {
+      display: block;
+      color: white;
+      font-size: 12px;
+      border: 2px solid white;
+      padding: 10px 50px;
+    }
+    
+    </style>
+    <div ng-init="getData()" ng-controller="homeCtrl">
+        <h3  ng-modal="userData">Welcome to dashboard <span style="color:rgb(32, 10, 114)">{{userData.name}}</span></h3><br><br>
+    
+    
+      <div class="wrapper container">
+    
+    
+    
+        <div class="card-wrapper second">
+    
+          <div class="front-card">
+            <img src="https://www.seekpng.com/png/detail/176-1761342_ba-student-getting-ready-for-application-cartoon-college.png" />
+            <h2> Student's Record </h2>
+            <p>Insert,Delete,Search and View student records </p>
+          </div>
+    
+          <div class="back-card">
+            <h3>Perform the following operation on student records</h3>
+            <table>
+              <tr>
+                <a ui-sref="insert">Insert</a>
+            </tr><br>
+            <tr>
+                <a ui-sref="search">Search</a>
+            </tr><br>
+            <tr>
+                <a ui-sref="delete">Delete</a>
+            </tr><br>
+            <tr>
+                <a ui-sref="student">View</a>
+            </tr>
+            </table>
+          </div>
+    
+        </div>
+    
+        <div class="card-wrapper first">
+    
+            <div class="front-card">
+              <img src="https://images.squarespace-cdn.com/content/v1/5c17fee58ab722e19b765b9d/1553127367214-7AD0KL7RGTKZTU8QN98K/betteranalytics.jpg?format=1000w" />
+              <h2> Analytics </h2>
+              <p>Analysis on the basis of gender,age,region</p>
+            </div>
+      
+            <div class="back-card">
+              <h2> Press the button to see the analytics </h2>
+              <a ui-sref="analytics">Analytics</a>
+            </div>
+      
+          </div>
+        <div class="card-wrapper third">
+    
+          <div class="front-card">
+            <img src="https://i.pinimg.com/originals/4f/ae/53/4fae535ca7e76a966f7b432717cff19c.jpg" />
+            <h2> Teacher's Record</h2>
+            <p>Insert,Delete,Search and View teacher records</p>
+          </div>
+    
+            <div class="back-card">
+                <h3>Perform the following operation on teacher records</h3>
+                <table>
+                    <tr>
+                        <a ui-sref="insertTeacher">Insert</a>
+                    </tr><br>
+                    <tr>
+                        <a ui-sref="">Search</a>
+                    </tr><br>
+                    <tr>
+                        <a ui-sref="">Delete</a>
+                    </tr><br>
+                    <tr>
+                        <a ui-sref="">View</a>
+                    </tr>
+                </table>
+                
+            </div>
+    
+        </div>
+    
+      </div>
+      </div>

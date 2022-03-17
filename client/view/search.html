@@ -1,0 +1,33 @@
+ <div ng-init="getData()" ng-controller="searchController as vm" class="container">
+    <div class="row">
+        <div style="width: 30%; margin: 50px auto;">
+            <h3 class="card-subhead">Search the Students</h3><br>
+            <form name="myForm" id="searchForm" ng-submit= searchdata()>
+                <div class="form-group">
+                    <input is-number search-box-validation length-validation class="form-control" placeholder="Enter the value" name="searchVal" type="text" ng-model="searchRoll" required>
+                    <span class="red-text"  ng-show="searchForm.searchVal.$error.required && searchForm.searchVal.$dirty">This is a required field</span>
+                </div>
+                <div class="form-group">
+                    <input ng-disabled="myForm.$invalid || myForm.$pending" class="btn btn-lg btn-primary btn-block" type="submit" ></input>
+                </div>
+            </form>
+            <table class="table table-striped">
+                <tr>
+                    <th>No</th>
+                    <th>Fname</th>
+                    <th>lname</th>
+                    <th>RollNo</th>
+                    <th>Number</th>
+                </tr>
+                <tr ng-repeat="entry in searched">
+        
+                    <td>{{$index+1}}</td>
+                    <td>{{entry.fName}}</td>
+                    <td>{{entry.lName}}</td>
+                    <td>{{entry.rollNo}}</td>
+                    <td>{{entry.phoneNo}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

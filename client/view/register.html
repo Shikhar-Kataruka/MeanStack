@@ -1,0 +1,40 @@
+<div ng-controller="registerController as vm" class="container">
+    <div class="row">
+        <div style="width: 50%; margin: 50px auto;">
+            <h3 class="card-subhead">Registeration Form</h3><br>
+            <form id="registerForm" name="registerForm" ng-submit="addEntry()">
+                <div class="form-group">
+                    <input class="form-control" placeholder="email" type="text" name="username" ng-model="username" ng-pattern="eml_add" ng-required="true" autocomplete="off">
+                    <span style="color:white" class="red-text" ng-if="registerForm.username.$error.required && registerForm.username.$dirty">Email is a required field</span>
+                    <span style="color:white" class="{  
+                        $scope.user = {  
+                            password: "",  
+                            confirmPassword: ""  
+                        };  
+                    });  " ng-show="registerForm.username.$error.pattern">Invalid Email</span>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="password" name="password" type="password" ng-model="password" ng-minlength="1" ng-maxlength="16" required>
+                    <span style="color:white" ng-show="registerForm.password.$touched && registerForm.password.$error.minlength">min 3 chars.</span>
+                    <span style="color:white" ng-show="registerForm.password.$touched && registerForm.password.$error.maxlength">Max 16 chars.</span>
+                    <span style="color:white" class="red-text" ng-if="registerForm.password.$error.required && registerForm.password.$dirty">Password is a required field</span>
+                </div>
+                <div class="form-group">  
+                    <input placeholder="Confirm Password" type="password" name="CPassword" ng-model="CPassword" required compare-to="password" class="form-control" />   
+                    <span style="color:white" class="red-text" ng-show="registerForm.CPassword.$error.compareTo">  
+                       Passwords don't match.  
+                    </span>   
+                 </div> 
+                <div class="form-group">
+                    <input class="form-control" placeholder="PhoneNo" ng-required="true" ng-pattern="ph_numbr" autocomplete="off"  type="text" name="phoneNo" ng-model="phoneNo" required>
+                    <span style="color:white" class="red-text" ng-if="registerForm.phoneNo.$error.required && registerForm.phoneNo.$dirty">Contact number is a required field</span>
+                    <span style="color:white" class="red-text" ng-show="registerForm.phoneNo.$error.pattern">Please enter a 10 digit number</span>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-lg btn-primary btn-block" type="submit"></input>
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>
+            
